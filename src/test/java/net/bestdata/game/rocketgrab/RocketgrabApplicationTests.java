@@ -1,13 +1,13 @@
-package net.bestdata.bdgrocketgrab;
+package net.bestdata.game.rocketgrab;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BdgRocketgrabApplicationTests {
+class RocketgrabApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
