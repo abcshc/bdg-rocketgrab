@@ -5,7 +5,10 @@ import net.bestdata.game.rocketgrab.repositories.documents.Summoner;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface SummonerRepository extends MongoRepository<Summoner, String> {
-    Summoner findByNameAndRegion(String summonerName, Region region);
+    Optional<Summoner> findBySummonerNameAndRegion(String summonerName, Region region);
+    Optional<Summoner> findByPuuid(String puuid);
 }

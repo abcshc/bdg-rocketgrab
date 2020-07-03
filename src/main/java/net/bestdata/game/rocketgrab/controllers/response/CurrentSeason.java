@@ -15,6 +15,7 @@ public class CurrentSeason {
     private String averagePlacement;
 
     public static CurrentSeason newBySeasonStatistic(SeasonStatistic seasonStatistic) {
+        if (seasonStatistic == null) return null;
         return new CurrentSeason(seasonStatistic.getTier(), seasonStatistic.getLeaguePoints(),
                 seasonStatistic.getWins(), seasonStatistic.getTopFour(), seasonStatistic.getPlays(),
                 seasonStatistic.getAveragePlacement());

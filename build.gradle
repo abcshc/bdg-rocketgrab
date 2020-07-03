@@ -31,6 +31,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	compile 'com.google.guava:guava:29.0-jre'
 }
 
 dependencyManagement {
