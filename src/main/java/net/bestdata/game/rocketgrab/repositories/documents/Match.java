@@ -63,6 +63,6 @@ public class Match {
         return participants.stream()
                 .filter(participant -> puuid.equals(participant.getPuuid()))
                 .findFirst()
-                .map(participant -> MyMatch.newMyMatch(dataVersion, gameDateTime, gameLength, gameVariation, participant.getComposition(), shortParticipants));
+                .map(participant -> MyMatch.newMyMatch(dataVersion, gameDateTime, gameLength, gameVariation, participant.getComposition(), shortParticipants, participant.getPlacement()));
     }
 }

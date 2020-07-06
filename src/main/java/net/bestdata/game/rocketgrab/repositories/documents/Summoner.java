@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -36,13 +37,14 @@ public class Summoner {
 
     private int profileIconId;
     private long summonerLevel;
+    private String lastMatch;
 
     public SeasonStatistic findSeasonStatistic(String season) {
         return seasonStatisticMap.get(season);
     }
 
     public static Summoner newEmpty() {
-        return new Summoner(null, "", Region.NONE, "", "", "", Collections.emptyList(), Collections.emptyMap(), 0, 0);
+        return new Summoner(null, "", Region.NONE, "", "", "", Collections.emptyList(), Collections.emptyMap(), 0, 0, null);
     }
 
     public void updateViaSummonerApi(SummonerRiotResponse summonerRiotResponse, Region region) {
@@ -53,5 +55,22 @@ public class Summoner {
         this.puuid = summonerRiotResponse.getPuuid();
         this.profileIconId = summonerRiotResponse.getProfileIconId();
         this.summonerLevel = summonerRiotResponse.getSummonerLevel();
+    }
+
+    public boolean isCheckedMatch(String matchId) {
+        if (lastMatch == null) {
+            return false;
+        }
+        if (lastMatch.equals(matchId)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void addMyMatch(MyMatch myMatch) {
+        if(myMatches.equals(Collections.emptyList())) {
+            myMatches = new ArrayList<>();
+        }
+        myMatches.add(myMatch);
     }
 }

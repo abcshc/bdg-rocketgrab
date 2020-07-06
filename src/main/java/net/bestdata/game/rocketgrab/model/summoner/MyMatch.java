@@ -20,8 +20,9 @@ public class MyMatch {
     private List<Unit> units;
     private List<Trait> traits;
     private List<ShortParticipant> shortParticipants;
+    private int placement;
 
-    public static MyMatch newMyMatch(String dataVersion, LocalDateTime gameDateTime, float gameLength, String gameVariation, Composition composition, List<ShortParticipant> shortParticipants) {
-        return new MyMatch(dataVersion, gameDateTime, gameLength, gameVariation, composition.getUnits(), composition.getTraits(), shortParticipants);
+    public static MyMatch newMyMatch(String dataVersion, LocalDateTime gameDateTime, float gameLength, String gameVariation, Composition composition, List<ShortParticipant> shortParticipants, int placement) {
+        return new MyMatch(dataVersion, gameDateTime, gameLength, gameVariation, composition.getUnits(), composition.getTraits(), shortParticipants, placement);
     }
 }

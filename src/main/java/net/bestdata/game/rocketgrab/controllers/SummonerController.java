@@ -23,7 +23,6 @@ public class SummonerController {
         this.summonerService = summonerService;
     }
 
-    // TODO: Not Found 처리
     @GetMapping("/summoner/{region}/{summonerName}")
     public SummonerResponse getSummoner(@PathVariable(value = "region") String region,
                                         @PathVariable(value = "summonerName") String summonerName) {
